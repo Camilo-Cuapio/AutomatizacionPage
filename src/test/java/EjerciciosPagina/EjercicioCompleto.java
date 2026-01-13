@@ -38,6 +38,13 @@ String valiUsu= driver.getCurrentUrl();
 
 WebElement errorMensajeElemento=driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
       actualError
+Mensaje=errorMensajeElemento.getText();
+      String expectedErrorMensaje="Epic sadface: Username and password do not match any user in this service";
+        if (actualErrorMensaje.equals(expectedErrorMensaje)){
+            System.out.println("el mensaje de error es correcto");
+        }else{
+            System.out.println("el mensaje de error no es correcto");
         }
+    }
 }
 }
