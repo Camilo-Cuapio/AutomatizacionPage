@@ -34,7 +34,6 @@ String valiUsu= driver.getCurrentUrl();
         if (valiUsu.contains("inventory.html")){
             System.out.println("logeo fue exitoso");
         }else{
-            // mensaje de error
             System.out.println("el logeo no fue exitoso");
 
 WebElement errorMensaje=driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
