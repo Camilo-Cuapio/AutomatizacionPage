@@ -1,0 +1,1 @@
+{"uuid":"cd76663f-517a-4cd7-b758-33c0ef065825","name":"AutomatizacionPage","children":["c5836f34-cab7-4b58-988c-83996c9e8d4b"],"befores":[{"name":"serUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1768434732970,"stop":1768434735180}],"afters":[],"start":1768434732947,"stop":1768434735687}
