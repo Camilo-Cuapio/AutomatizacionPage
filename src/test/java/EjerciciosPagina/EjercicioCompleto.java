@@ -18,6 +18,7 @@ import java.util.List;
 public class EjercicioCompleto {
     private WebDriver driver;
 // se agrega rama para repaso
+    //pruebas
     @BeforeTest
     public void serUp() {
         WebDriverManager.chromedriver().setup();
