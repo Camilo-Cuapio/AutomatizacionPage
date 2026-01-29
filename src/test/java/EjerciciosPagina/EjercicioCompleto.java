@@ -2,13 +2,14 @@ package EjerciciosPagina;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,7 +19,7 @@ import java.util.List;
 public class EjercicioCompleto {
     private WebDriver driver;
 
-    @BeforeTest
+    @Before
     public void serUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -28,7 +29,7 @@ public class EjercicioCompleto {
     }
 
     @Test
-    public void loginU() {
+    public void login() {
         WebElement usu = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
         usu.click();
         usu.sendKeys("standard_user");
