@@ -77,13 +77,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUNIT
+
 <dependency>
    <groupId>junit</groupId>
    <artifactId>junit</artifactId>
    <version>RELEASE</version>
    <scope>compile</scope>
-</dependency>               -->
+</dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
