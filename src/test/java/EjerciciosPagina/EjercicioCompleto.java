@@ -27,7 +27,7 @@ public class EjercicioCompleto {
         driver.get("https://www.saucedemo.com/");
 
     }
-
+//Ingresar con usuario y contraseña
     @Test
     public void login() {
         WebElement usu = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
@@ -38,6 +38,7 @@ public class EjercicioCompleto {
         pass.sendKeys("secret_sauce");
         pass.submit();
 
+        //Validación de logeo correcto
         String validlog = driver.getCurrentUrl();
         System.out.println("la pagina es: " + validlog);
         if (driver.getCurrentUrl().contains("inventory.html")) {
@@ -46,6 +47,7 @@ public class EjercicioCompleto {
         } else {
             System.out.println("se logeo incorrectamente");
 
+            //Validación de mensaje de error al ingresar contrase incorrecta
             WebElement mensajeErrorElem = driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
             String actualError = mensajeErrorElem.getText();
             String experadoError = "Epic sadface: Username and password do not match any user in this service";
@@ -57,7 +59,7 @@ public class EjercicioCompleto {
                 System.out.println("mensaje de error incorrecto");
             }
 
-
+//Validación de elementos X cuando se genera error en el logeo
             List<WebElement> xUsu = driver.findElements(By.cssSelector("#login_button_container > div > form > div:nth-child(1) > svg"));
             if (xUsu.size() == 1) {
                 System.out.println("se visualiza xusuario");
@@ -70,6 +72,8 @@ public class EjercicioCompleto {
             }else {
                 System.out.println("No se muestra x en pass");
             }
+
+
             List<WebElement> xMensajeError=driver.findElements(By.cssSelector("#login_button_container > div > form > div.error-message-container.error > h3 > button > svg > path"));
         if(xMensajeError.size()==1){
             System.out.println("xmensaje de error si se visualiza");
@@ -78,6 +82,8 @@ public class EjercicioCompleto {
         }
 
         }
+
+        //Lista de productos esperados
 List<String> expectedProductos=new ArrayList<>();
         expectedProductos.add("Test.allTheThings() T-Shirt (Red)");
         expectedProductos.add("Sauce Labs Backpack");
@@ -88,18 +94,23 @@ List<String> expectedProductos=new ArrayList<>();
 
         System.out.println("la lista de productos experados es: "+expectedProductos);
 
+        //Ordenar los productos esperados
         Collections.sort(expectedProductos);
         System.out.println("lista ordenada de productos experados"+expectedProductos);
 
+        //Obtener lista de productos actuales
         List<WebElement> actualProductElemen=driver.findElements(By.xpath("//div[@class=\"inventory_item_name \"]"));
         List<String> actualProduct=new ArrayList<String>();
         for (WebElement product: actualProductElemen){
             actualProduct.add(product.getText());
+
+            //Validar numero de productos esperados con actuales
         }if (expectedProductos.size()==actualProduct.size()){
             System.out.println("el numero de productos es: "+actualProduct.size());
         }else {
             System.out.println("no coincide el numero de productos");
         }
+        //Validar id productos actuales con esperados
 boolean flag=true;
         for (int i=0;i<expectedProductos.size();i++){
             if (!expectedProductos.get(i).equals(actualProduct.get(i))){
@@ -112,6 +123,7 @@ boolean flag=true;
         }else {
 
         }
+        //Lista de productos esperados con actuales
         System.out.println("productos esperados"+expectedProductos);
         System.out.println("productos actuales"+actualProduct);
 
